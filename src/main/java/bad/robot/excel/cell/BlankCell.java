@@ -21,11 +21,11 @@ import bad.robot.excel.column.ExcelColumnIndex;
 import bad.robot.excel.style.NoStyle;
 import bad.robot.excel.style.Style;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import static bad.robot.excel.column.ColumnIndex.column;
-import static org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BLANK;
 
 public class BlankCell extends StyledCell {
 
@@ -39,7 +39,7 @@ public class BlankCell extends StyledCell {
 
     @Override
     public void addTo(Row row, ColumnIndex column, Workbook workbook) {
-        Cell cell = row.createCell(column.value(), CELL_TYPE_BLANK);
+        Cell cell = row.createCell(column.value(), CellType.BLANK);
         this.getStyle().applyTo(cell, workbook);
     }
 

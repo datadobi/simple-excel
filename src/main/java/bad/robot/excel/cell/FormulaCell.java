@@ -19,11 +19,11 @@ package bad.robot.excel.cell;
 import bad.robot.excel.column.ColumnIndex;
 import bad.robot.excel.style.NoStyle;
 import bad.robot.excel.style.Style;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import static java.lang.String.format;
-import static org.apache.poi.ss.usermodel.Cell.CELL_TYPE_FORMULA;
 
 public class FormulaCell extends StyledCell {
 
@@ -44,7 +44,7 @@ public class FormulaCell extends StyledCell {
 
     @Override
     public void addTo(Row row, ColumnIndex column, Workbook workbook) {
-        org.apache.poi.ss.usermodel.Cell cell = row.createCell(column.value(), CELL_TYPE_FORMULA);
+        org.apache.poi.ss.usermodel.Cell cell = row.createCell(column.value(), CellType.FORMULA);
         update(cell, workbook);
     }
 

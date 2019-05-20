@@ -39,11 +39,13 @@ public class PoiWorkbookReader implements Readable<Workbook> {
             throw new IllegalArgumentException("stream was null, could not load the workbook");
         try {
             return WorkbookFactory.create(stream);
-        } catch (InvalidFormatException e) {
-            throw new IOException(e);
+        } catch (Exception e) {
+            if (e instanceof InvalidFormatException) {
+                throw new IOException(e);
+            }
+            throw e;
         } finally {
             stream.close();
         }
     }
-
 }

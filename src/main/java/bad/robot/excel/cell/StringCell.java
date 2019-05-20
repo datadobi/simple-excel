@@ -19,10 +19,9 @@ package bad.robot.excel.cell;
 import bad.robot.excel.column.ColumnIndex;
 import bad.robot.excel.style.NoStyle;
 import bad.robot.excel.style.Style;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
-
-import static org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING;
 
 public class StringCell extends StyledCell {
 
@@ -39,7 +38,7 @@ public class StringCell extends StyledCell {
 
     @Override
     public void addTo(Row row, ColumnIndex column, Workbook workbook) {
-        org.apache.poi.ss.usermodel.Cell cell = row.createCell(column.value(), CELL_TYPE_STRING);
+        org.apache.poi.ss.usermodel.Cell cell = row.createCell(column.value(), CellType.STRING);
         update(cell, workbook);
     }
 
